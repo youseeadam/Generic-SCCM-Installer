@@ -4,10 +4,11 @@ The notes of the script have the process, but here it is again.
 
 <p>This script is called via a standard command batch file. The reason for doing it this way is so an errorcode can be returned to the system exit environmental variable. To call this script create a command line batch file with the following two lines</p>
 
-<i>
+<p><i>
 PowerShell.exe -ExecutionPolicy ByPass -file AppInstaller.ps1 -InstallerApp %1 -InstallerOptions %2<br />
 exit /b %errorlevel%
 </i>
+    </p>
 <p>Then call the CMD file as follows from within SCCM</p>
 <i>cmd /c AppInstaller.cmd "ApplicationName" "CommandLineOptions"</i><br />
 For example: cmd /c AppInstaller.cmd "LogiSyncInstaller_1.0.0.exe" "/S /RS1=Dynamic" The order of the two options is absolute. The application must be followed by the options.
