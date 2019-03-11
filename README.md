@@ -10,12 +10,12 @@ exit /b %errorlevel%
 </i>
 <p>Then call the CMD file as follows from within SCCM</p>
 <i>cmd /c AppInstaller.cmd "ApplicationName" "CommandLineOptions"</i><br />
-For example: cmd /c AppInstaller.cmd "LogiSyncInstaller_1.0.0.exe" "/S /RS1=Dynamic" The order of the two options is absolute. The application must be followed by the options.<br />
-
+For example: cmd /c AppInstaller.cmd "LogiSyncInstaller_1.0.0.exe" "/S /RS1=Dynamic" The order of the two options is absolute. The application must be followed by the options.
+<p></p>
 <p>When building the SCCM packages you will need to edit the package and add the following two exit codes  </p>
 0 is a Succsefull Install<br />
 2 is failed for parent app<br />
-
+<p></p>
 
 <p>A basic log file using the transcript function will also be logged in the temp directory of the account. So if installing for System in c:\windows\temp (typically), or under the users temp directory if installing it for a user. The filename is %temp%install-ApplicatioName.log for example c:\windows\temp\insatall-LogiSyncInstaller_1.0.0.exe.log</p>
     
