@@ -1,16 +1,17 @@
 <#
 .SYNOPSIS
     Used for installing Software. This script is called via a standard command batch file. The reason for doing it this way is so an errorcode can be returned
-    to the system exit environmental variable. To call this script create a command line batch file with the following line
+    to the system exit environmental variable. To call this script create a command line batch file with the following two lines:
     
     PowerShell.exe -ExecutionPolicy ByPass -file AppInstaller.ps1 -InstallerApp %1 -InstallerOptions %2
     exit /b %errorlevel%
 
     Then call the CMD file as follows from within SCCM
     cmd /c AppInstaller.cmd "ApplicationName" "CommandLineOptions" for example
-    cmd /c AppInstaller.cmd "LogiSyncInstaller_1.0.0.exe" "/S /RS1=Dynamic"
+    cmd /c AppInstaller.cmd "LogiSyncInstaller_1.0.0.exe" "/S /RS1=Dynamic" The order of the options is absolute and must be in the order of the application
+    name and then the options.
 
-    When building the SCCM packages you will need to edit the psackage and add the following two exit codes 
+    When building the SCCM packages you will need to edit the package and add the following two exit codes 
     0 is a Succsefull Install
     2 is failed for parent app
 
